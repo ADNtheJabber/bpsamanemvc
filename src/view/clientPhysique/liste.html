@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="ADN"/>
+    	<meta name="description" content="Projet BP: version samanemvc"/>
+		<title>Banque du Peuple</title>
+
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/styleIndex.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<!-- integration de javascript dans le moteur de rendu de vue Smarty -->
+		{literal}
+			<script language=javascript>
+			function load_design() {
+			   document.getElementById("design_js").style.color = "#40007d";
+			}
+
+			</script>
+		{/literal}
+	</head>
+	<body onload="load_design()">
+		<header>
+			<!--logo et nom banque-->
+					<div class="logo">
+						<img src="{$url_base}public/image/bplogo.png" alt="logo BP"/>
+						<h2>Banque du Peuple</h2>
+					</div>
+			<!--end of logo et nom banque-->
+			
+			<!--nav-->               
+				   <nav>
+						<ul>
+							<li><a href="{$url_base}accueil">Accueil</a></li>
+							<li class="dropdown">
+								<a href="javascript:void(0)" class="dropbtn">Ajouter un client</a>
+								<div class="dropdown-content">
+								  <a href="{$url_base}ClientPhysique/ajout">Client Physique</a>
+								  <a href="{$url_base}ClientMoral/ajout">Client Moral</a>
+								</div>
+							</li>
+							<li><a href="{$url_base}Compte/ajout">Ajouter compte</a></li>
+							<li class="dropdown">
+								<a href="javascript:void(0)" class="dropbtn">Listes</a>
+								<div class="dropdown-content">
+								  <a href="{$url_base}ClientPhysique/liste">-Clients Particuliers</a>
+								  <a href="{$url_base}ClientMoral/liste">-Clients Entreprises</a>
+								  <a href="{$url_base}Compte/liste">-Comptes</a>
+								</div>
+							</li>
+							<li><a href="{$url_base}virement">Virement</a></li>
+							<li><a href="{$url_base}assistance">Assistance</a></li>
+						</ul>
+				   </nav>
+			<!--end of nav--> 
+        </header>
+        
+        <div class="container">
+
+            <div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:40px; width: 1000px; margin-left: 30px;">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Banque du Peuple</div>
+                    <div class="panel-body">
+                        <div class="alert alert-success" style="font-size:18px; text-align:justify;">
+                            Liste des clients physiques
+                        </div>
+                        {if isset($clientsP)}
+                            {if $clientsM != null}
+                                <table class="table table-bordered table-stripped">
+                                    <tr>
+                                        <th>Identifiant</th>
+                                        <th>Nom</th>
+                                        <th>Adresse</th>
+                                        <th>Telephone</th>
+                                        <th>Email</th>
+                                    </tr>
+                                    {foreach from=$clientsP item=client}
+                                        <tr>
+                                            <td>{$client->getId()}</td>
+                                            <td>{$client->getNom()}</td>
+                                            <td>{$client->getAdresse()}</td>
+                                            <td>{$client->getTelephone()}</td>
+                                            <td>{$client->getEmail()}</td>                                        
+                                        </tr>
+                                    {/foreach}
+                                </table>
+                            {else}
+                                Liste vide
+                            {/if}
+                        {/if}
+                    </div>
+                    <a href="{url_base}Welcome/index">Accueil</a>
+                </div>
+            </div>
+            
+        </div>
+            
+        </body>
+    </html>
+    

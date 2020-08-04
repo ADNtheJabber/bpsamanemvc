@@ -1,0 +1,24 @@
+{
+    "name": "samane/samanemvc",
+    "description": "SamaneMVC is a PHP Framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ngor Seck",
+            "email": "ngorsecka@gmail.com"
+        },
+        {
+            "name": "ngorseckframework",
+            "email": "samanemvc@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "doctrine/orm": "^2.6.2"
+    },
+    "autoload": {
+        "psr-0": {"": "src/entities/"}
+    }
+    
+}
