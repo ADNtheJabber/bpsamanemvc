@@ -12,39 +12,25 @@ class ClientPhysiqueRepository extends Model {
         $entityManager->persist($clientP);
         $entityManager->flush();
 
-        echo "Enregistrement réussi: id du client " . $clientM->getId() . "\n";
     }
 
-    public function read(){
+    public function liste(){
         require_once "../../bootstrap.php";
         
-        $clientPRepository = $entityManager->getRepository('ClientPhysique');
-        $clients = $clientPRepository->findAll();
-
-        foreach ($clients as $client) {
-            echo sprintf("-%s\n", $client->getNom()," ",
-                                  $client->getAdresse()," ",
-                                  $client->getTelephone()," ",
-                                  $client->getEmail()
-                        );
-        }
+        if($this->db != null)
+		{
+			return $this->db->createQuery("SELECT c FROM ClientPhysique c")->getResult();
+		}
     }
 
-    public function showOne(){
+
+    public function getClient($id){
+        
         require_once "../../bootstrap.php";
-        $id = $argv[1];
-        $client = $entityManager->find('clientPhysique', $id);
-
-        if ($client === null) {
-            echo "Client introuvable !.\n";
-            exit(1);
-        }
-
-        echo sprintf("-%s\n", $client->getNom()," ",
-                              $client->getAdresse()," ",
-                              $client->getTelephone()," ",
-                              $client->getEmail()
-                    );
-    }
+        if($entityManager != null)
+		{
+            return $entityManager->createQuery("SELECT c FROM ClientPhysique c WHERE c.id = " . $id)->getSingleResult();
+		}
+	}
 }
 ?>

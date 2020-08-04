@@ -10,16 +10,29 @@ class clientMoralController extends Controller {
     }
 
      /** 
-     * url pattern for this method
-     * localhost/projectName/Test/
+     * use: localhost/bpsamanemvc/ClientMoral/
      */
-
     public function index(){
 
-        return $this->view->load("test/index");
+        return $this->view->load("clientMoral/ajout");
     }
 
-    public function createClientM() {
+    /** 
+     * url pattern for this method
+     * localhost/bpsamanemvc/ClientMoral/liste
+     */
+    public function liste(){
+        $clientMdb = new clientMoralRepository();
+        
+        $data['tests'] = $clientMdb->liste();
+        return $this->view->load("test/liste", $data);
+    }
+     /** 
+     * url pattern for this method
+     * localhost/bpsamanemvc/clientMoral/add
+     */
+
+    public function add() {
 
     if (isset($_POST) && !empty($_POST)) {
 
@@ -48,10 +61,16 @@ class clientMoralController extends Controller {
         } else {
             return $this->view->load("clientMoral/ajout");
         }
-    }else {
-        return $this->view->load("clientMoral/index");
     }
-
    }
-    
+    /** 
+     * url pattern for this method
+     * localhost/bpsamanemvc/clientMoral
+     */
+    public function findById($id) {
+        $clientdb = new ClientMoralRepository;
+        
+        $data['client'] = $clientdb->getClient($id);
+        return $this->view->load("compte/listeSingle", $data);
+    }
 }   

@@ -7,10 +7,14 @@
     POUR TOUTE MODIFICATION VISANT A L'AMELIORER.
     VOUS ETES LIBRE DE TOUTE UTILISATION.
   ===================================================*/
-	require_once 'config/welcome_controller.php';
+
+use libs\system\SM_Error;
+
+require_once 'config/welcome_controller.php';
   require 'config/database.php';
   require_once 'libs/rooting/rooting.conf.php';
   require_once 'libs/system/smarty/libs/Smarty.class.php';
+  require_once 'libs/system/SM_Error.lib.class.php';
   
 class Autoloader
 {
@@ -39,8 +43,8 @@ class Autoloader
 
     } else if(file_exists("src/entities/".$class.".php")) {
       require_once "src/entities/".$class.".php";
-    } else if(file_exists("src/controller/".$class.".php")) {
-      require_once "src/controller/".$class.".php";
+    } else if(file_exists("src/controller/".$class.".class.php")) {
+      require_once "src/controller/".$class.".class.php";
     } else if(file_exists("src/model/".$class.".php")) {
       require_once "src/model/".$class.".php";
     /** 

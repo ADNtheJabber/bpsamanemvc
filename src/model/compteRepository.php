@@ -11,42 +11,24 @@ class CompteRepository extends Model {
 
         $entityManager->persist($compte);
         $entityManager->flush();
-
-        echo "Enregistrement réussi: id du client " . $compte->getId() . "\n";
     }
 
-    public function read(){
+    public function liste(){
         require_once "../../bootstrap.php";
         
-        $compteRepository = $entityManager->getRepository('Compte');
-        $comptes = $compteRepository->findAll();
-
-        foreach ($comptes as $compte) {
-            echo sprintf("-%s\n", $compte->getId()," ",
-                                  $compte->getNumCompte()," ",
-                                  $compte->getTypeCompte()," ",
-                                  $compte->getDepotInitial()
-                        );
-        }
+        if($entityManager != null)
+		{
+			return $entityManager->createQuery("SELECT c FROM Compte c")->getResult();
+		}
     }
 
-    public function showOne(){
+    public function getCompte($id){
+        
         require_once "../../bootstrap.php";
-        $id = $argv[1];
-        $compte = $entityManager->find('compte', $numCompte);
-
-        if ($compte === null) {
-            echo "Compte inexistant !.\n";
-            exit(1);
-        }
-
-        echo sprintf("-%s\n", $compte->getNumCompte()," ",
-                              $compte->getId()," ",
-                              $compte->getTypeCompte()," ",
-                              $compte->getSolde()," ",
-                              $compte->getIdClientPhysique()," ",
-                              $compte->getIdClientEntreprise()
-                    );
-    }
+        if($entityManager != null)
+		{
+            return $entityManager->createQuery("SELECT c FROM Compte c WHERE c.id = " . $id)->getSingleResult();
+		}
+	}
 }
 ?>
