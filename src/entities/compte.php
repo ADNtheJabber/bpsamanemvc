@@ -1,47 +1,47 @@
 <?php
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Annotations as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="compte")
+ * @Entity
+ * @Table(name="compte")
  */
     class Compte {
 
         /** 
-        * @ORM\Id
-        * @ORM\Column(type="integer")
-        * @ORM\GeneratedValue
+        * @Id
+        * @Column(type="integer")
+        * @GeneratedValue
         */
         private $id;
 
         /** 
-        * @ORM\Column(type="string") 
+        * @Column(type="string") 
         */
         private $numCompte;
 
         /** 
-        * @ORM\Column(type="string") 
+        * @Column(type="string") 
         */
         private $typeCompte;
 
         /** 
-        * @ORM\Column(type="decimal") 
+        * @Column(type="decimal") 
         */
         private $fraisOuv;
 
         /** 
-        * @ORM\Column(type="decimal") 
+        * @Column(type="decimal") 
         */
         private $remuneration;
 
         /** 
-        * @ORM\Column(type="date") 
+        * @Column(type="date") 
         */
         private $dateDeblocage;
 
         /** 
-        * @ORM\Column(type="decimal") 
+        * @Column(type="decimal") 
         */
         private $solde;
 

@@ -1024,12 +1024,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a0ff40f1c02a79acdd0a71f85543eebb9df1cdc2"
+                "reference": "d6a867bf84710c69d72d6edcf18f86c64eed3d6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a0ff40f1c02a79acdd0a71f85543eebb9df1cdc2",
-                "reference": "a0ff40f1c02a79acdd0a71f85543eebb9df1cdc2",
+                "url": "https://api.github.com/repos/symfony/console/zipball/d6a867bf84710c69d72d6edcf18f86c64eed3d6b",
+                "reference": "d6a867bf84710c69d72d6edcf18f86c64eed3d6b",
                 "shasum": ""
             },
             "require": {
@@ -1101,7 +1101,7 @@
                 "console",
                 "terminal"
             ],
-            "time": "2020-07-31T07:51:09+00:00"
+            "time": "2020-08-04T06:11:14+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

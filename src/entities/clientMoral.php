@@ -1,53 +1,53 @@
 <?php
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Annotations as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="clientMoral")
+ * @Entity
+ * @Table(name="clientMoral")
  */
    class ClientMoral {
 
     /** 
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
+     * @Id
+     * @Column(type="integer")
+     * @GeneratedValue
      */
     private $id;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $nom;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $adresse;
 
     /** 
-     * @ORM\Column(type="integer") 
+     * @Column(type="integer") 
      */
     private $tel;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $email;
 
     /** 
-     * @ORM\Column(type="integer") 
+     * @Column(type="integer") 
      */
     private $ninea;
 
     /** 
-     * @ORM\Column(type="integer") 
+     * @Column(type="integer") 
      */
     private $regiscom;
 
     /**
      * One ClientMoral has many Compte. This is the inverse side.
-     * @ORM\OneToMany(targetEntity="Compte", mappedBy="clientmoral")
+     * @OneToMany(targetEntity="Compte", mappedBy="clientmoral")
      */
     private $numCompte;
 

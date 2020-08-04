@@ -1,68 +1,68 @@
 <?php
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Annotations as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="clientPhysique")
+ * @Entity
+ * @Table(name="clientPhysique")
  */
 class ClientPhysique {
 
     /** 
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
+     * @Id
+     * @Column(type="integer")
+     * @GeneratedValue
      */
     private $id;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $nom;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $prenom;
 
     /** 
-     * @ORM\Column(type="integer") 
+     * @Column(type="integer") 
      */
     private $tel;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $adresse;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $email;
 
     /** 
-     * @ORM\Column(type="integer") 
+     * @Column(type="integer") 
      */
     private $cni;
 
     /** 
-     * @ORM\Column(type="integer") 
+     * @Column(type="integer") 
      */
     private $salaire;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $profession;
 
     /** 
-     * @ORM\Column(type="string") 
+     * @Column(type="string") 
      */
     private $infosEmp;
 
     /**
      * One ClientPhysique has many Compte. This is the inverse side.
-     * @ORM\OneToMany(targetEntity="Compte", mappedBy="clientphysique")
+     * @OneToMany(targetEntity="Compte", mappedBy="clientphysique")
      */
     private $numCompte;
 
