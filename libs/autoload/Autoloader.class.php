@@ -34,12 +34,12 @@ class Autoloader
     /** 
      * autoload of developers classes
      **/
-    else if(file_exists("src/entities/".$class.".class.php")) {
-      require_once "src/entities/".$class.".class.php";
+    else if(file_exists("src/entities/".$class.".php")) {
+      require_once "src/entities/".$class.".php";
     } else if(file_exists("src/controller/".$class.".class.php")) {
       require_once "src/controller/".$class.".class.php";
-    } else if(file_exists("src/model/".$class.".class.php")) {
-      require_once "src/model/".$class.".class.php";
+    } else if(file_exists("src/model/".$class.".php")) {
+      require_once "src/model/".$class.".php";
 
     } else if(file_exists("src/entities/".$class.".php")) {
       require_once "src/entities/".$class.".php";

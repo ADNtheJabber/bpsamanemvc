@@ -41,7 +41,7 @@ use Doctrine\Common\Collections\ArrayCollection;
     private $ninea;
 
     /** 
-     * @Column(type="integer") 
+     * @Column(type="string") 
      */
     private $regiscom;
 
@@ -49,7 +49,7 @@ use Doctrine\Common\Collections\ArrayCollection;
      * One ClientMoral has many Compte. This is the inverse side.
      * @OneToMany(targetEntity="Compte", mappedBy="clientmoral")
      */
-    private $numCompte;
+    private $Compte;
 
     function __construct(){
 

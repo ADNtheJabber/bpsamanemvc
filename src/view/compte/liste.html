@@ -8,8 +8,8 @@
 
 		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
 		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/style.css"/>
-		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/styleIndex.css"/>
 		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
 		<!-- integration de javascript dans le moteur de rendu de vue Smarty -->
 		{literal}
@@ -45,8 +45,8 @@
 							<li class="dropdown">
 								<a href="javascript:void(0)" class="dropbtn">Listes</a>
 								<div class="dropdown-content">
-								  <a href="{$url_base}ClientPhysique/liste">-Clients Particuliers</a>
-								  <a href="{$url_base}ClientMoral/liste">-Clients Entreprises</a>
+								  <a href="{$url_base}ClientPhysique/liste">-Particuliers</a>
+								  <a href="{$url_base}ClientMoral/liste">-Entreprises</a>
 								  <a href="{$url_base}Compte/liste">-Comptes</a>
 								</div>
 							</li>
@@ -70,6 +70,7 @@
                             {if $comptes != null}
                                 <table class="table table-bordered table-stripped">
                                     <tr>
+										<th>id du compte</th>
                                         <th>Numero de compte</th>
                                         <th>Type de compte</th>
                                         <th>Solde</th>
@@ -78,11 +79,12 @@
                                     </tr>
                                     {foreach from=$comptes item=compte}
                                         <tr>
+											<td>{$compte->getId()}</td>
                                             <td>{$compte->getNumCompte()}</td>
                                             <td>{$compte->getTypeCompte()}</td>
                                             <td>{$compte->getSolde()}</td>
                                             <td>{$compte->getIdClientPhysique()}</td>
-                                            <td>{$url_base}Voir le proprietaire </td>                                        
+                                            <td><a href="{$url_base}">Voir le proprietaire</a> </td>                                        
                                         </tr>
                                     {/foreach}
                                 </table>

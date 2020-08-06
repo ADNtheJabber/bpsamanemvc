@@ -61,10 +61,10 @@ class ClientPhysique {
     private $infosEmp;
 
     /**
-     * One ClientPhysique has many Compte. This is the inverse side.
-     * @OneToMany(targetEntity="Compte", mappedBy="clientphysique")
+     * One ClientMoral has many Compte. This is the inverse side.
+     * @OneToMany(targetEntity="Compte", mappedBy="clientmoral")
      */
-    private $numCompte;
+    private $Compte;
 
     function __construct(){
 

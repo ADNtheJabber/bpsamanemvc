@@ -8,8 +8,8 @@
 
 		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
 		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/style.css"/>
-		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/styleIndex.css"/>
 		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
 		<!-- integration de javascript dans le moteur de rendu de vue Smarty -->
 		{literal}
@@ -45,8 +45,8 @@
 							<li class="dropdown">
 								<a href="javascript:void(0)" class="dropbtn">Listes</a>
 								<div class="dropdown-content">
-								  <a href="{$url_base}ClientPhysique/liste">-Clients Particuliers</a>
-								  <a href="{$url_base}ClientMoral/liste">-Clients Entreprises</a>
+								  <a href="{$url_base}ClientPhysique/liste">-Particuliers</a>
+								  <a href="{$url_base}ClientMoral/liste">-Entreprises</a>
 								  <a href="{$url_base}Compte/liste">-Comptes</a>
 								</div>
 							</li>
@@ -57,63 +57,107 @@
 			<!--end of nav--> 
 		</header>
         
+		<div class="container justify-content-center">
+			<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-10">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+							<h3 class="panel-title" style="text-transform: uppercase;"><i class="fa fa-user-circle"></i>  Formulaire de creation de Client Physique</i></h3>
+							</div>
+							<div class="panel-body">
+								{if isset($log)}
+									{if $log != 0}
+										<div class="alert alert-success">Données ajoutées!</div>
+									{else}
+										<div class="alert alert-danger">Erreur!</div>
+									{/if}
+								{/if}
+							<form method="POST" action="{$url_base}ClientPhysique/add" id="formClientPhysique">
 
-		<div class="content">
-            
-            <h6>Votre situation professionnelle</h6>
-            <input type="radio" name="sitPro" id="clientSalarie"/>
-            <label for="">Salarié</label>
-            <span>/</span>
-            <input type="radio" name="sitPro" id="clientNonSalarie"/>
-            <label for="">Non Salarié</label><br>
-       
-        <form action="clientPhysiqueController" class="myFormPhysique" method="POST" id="clientPhysique">
-            <div class="flexform">
-                <div id="form1">
-                    <label for="nom" id="labelNom">Nom: </label><br>
-                        <input type="text" id="nom_client_physique" name="nomPhysique" placeholder="Nom du client"/><br>
-                        <span id="name_error"></span><br>
-                    <label for="prenom" id="labelPrenom">Prenom: </label><br>
-                        <input type="text" id="prenom_client_physique" name="prenomPhysique" placeholder="Prenom du client"/><br>
-                        <span id="firstname_error"></span><br>
-                    <label for="adresse" id="labelAdresse">Adresse: </label><br>
-                        <input type="text" id="adresse_client_physique"  name="adressePhysique" placeholder="Adresse du client"/><br>
-                        <span id="adress_error"></span><br>
-                    <label for="telephone" id="labelTelephone">Telephone: </label><br>
-                        <input type="text" id="tel_client_physique" name="telPhysique" placeholder="Telephone du client"/><br>
-                        <span id="tel_error"></span><br>
-                    <label for="email" id="labelEmail"></label>Email: </label><br>
-                        <input type="text" id="email_client_physique" name="emailPhysique" placeholder="email du client"/><br>
-                        <span id="email.error"></span><br>
-        
-                </div>
-        
-                <div id="form2">
-                    <label for="identification" id="labelID">identification: </label><br>
-                        <input type="text" id="id_client_physique" name="cni" placeholder="CNI/Passport"/><br>
-                        <span id="id_error"></span><br>
-                    <label for="profession" id="labelProfession">profession: </label><br>
-                        <input type="text" id="profession" name="profession" placeholder="profession"/><br>
-                        <span id="profession_error"></span><br>
-        
-                    <label for="salaire" id="labelSalaire">Salaire actuel: </label><br>
-                        <input type="text" id="salaire"  name="salaire" placeholder="salaire du client"/><br>
-                        <span id="salary_error"></span><br>
-                        
-                    <label for="info_employeur" id="labelEmployeur">Informations de l'employeur: </label><br>
-                        <textarea id="infos_emp" name="infos_emp" placeholder="infos employeur"></textarea><br>
-                        <span id="infos_emp_error"></span>
-                                
-                </div>
-            </div>
-            <div class="btns" id="boutons_formClient">
-                <input type="submit" id="submitClient" value="Enregistrer"/>
-                <input type="reset" id="reset" value="Annuler"/>
-            </div>
-        </form>
-        
-    </div>
-    <script src="{$url_base}public/js/scriptCompte.js"></script>
-    <script src="{$url_base}public/js/ajax.js"></script>
-</body>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label for="SituationProfessionnelle">Situation professionnelle:</label>
+												<button class="btn" id="salariebtn"><i class="fa fa-briefcase" aria-hidden="true"></i> Salarié</button>
+												<button class="btn" id="nonsalariebtn"><i class="fa fa-money"></i> Non Salarié</button>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control input-sm" name="nom" id="nom" placeholder="Nom" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control input-sm" name="prenom" id="prenom" placeholder="Prenom" required/>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control input-sm" name="email" id="email" placeholder="Email" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" class="form-control input-sm" name="tel" id="tel" placeholder="Telephone" required/>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="adresse" id="adresse" class="form-control input-sm" placeholder="Adresse" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" name="identifiant" id="identifiant" class="form-control input-sm" placeholder="Numero de la Carte Nationale d'Identité" required/>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="profession" id="profession" class="form-control input-sm flexinput" placeholder="Profession" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" name="salaire" id="salaire" class="form-control input-sm flexinput" placeholder="Salaire actuel" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<textarea name="info_employeur" id="info_employeur" cols="30" rows="3" class="form-control input-sm flexinput" placeholder="Informations de l'employeur" required></textarea>										</div>
+									</div>
+								</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="submit" id="valider" name="valider" value="Valider" class="btn btn-success btn-block">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="reset" value="Annuler" class="btn btn-danger btn-block">
+									</div>
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="{$url_base}public/js/scriptClient.js"></script>
+	</body>
 </html>

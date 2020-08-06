@@ -17,9 +17,9 @@ class ClientMoralRepository extends Model {
     public function liste(){
         require_once "../../bootstrap.php";
         
-        if($entityManager != null)
+        if($this->db != null)
 		{
-			return $entityManager->createQuery("SELECT c FROM ClientMoral c")->getResult();
+			return $this->db->createQuery("SELECT c FROM ClientMoral c")->getResult();
 		}
     }
 

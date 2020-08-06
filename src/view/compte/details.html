@@ -64,25 +64,27 @@
                     <div class="panel-heading">Banque du Peuple</div>
                     <div class="panel-body">
                         <div class="alert alert-success" style="font-size:18px; text-align:justify;">
-                            Liste des clients physiques
+                            Liste des Comptes
                         </div>
-                        {if isset($clientsP)}
-                            {if $clientsM != null}
+                        {if isset($comptes)}
+                            {if $comptes != null}
                                 <table class="table table-bordered table-stripped">
                                     <tr>
-                                        <th>Identifiant</th>
-                                        <th>Nom</th>
-                                        <th>Adresse</th>
-                                        <th>Telephone</th>
-                                        <th>Email</th>
+										<th>id du compte</th>
+                                        <th>Numero de compte</th>
+                                        <th>Type de compte</th>
+                                        <th>Solde</th>
+                                        <th>idProprietaire</th>
+                                        <th>Action</th>
                                     </tr>
-                                    {foreach from=$clientsP item=client}
+                                    {foreach from=$comptes item=compte}
                                         <tr>
-                                            <td>{$client->getId()}</td>
-                                            <td>{$client->getNom()}</td>
-                                            <td>{$client->getAdresse()}</td>
-                                            <td>{$client->getTelephone()}</td>
-                                            <td>{$client->getEmail()}</td>                                        
+											<td>{$compte->getId()}</td>
+                                            <td>{$compte->getNumCompte()}</td>
+                                            <td>{$compte->getTypeCompte()}</td>
+                                            <td>{$compte->getSolde()}</td>
+                                            <td>{$compte->getIdClientPhysique()}</td>
+                                            <td><a href="{$url_base}">Voir le proprietaire</a> </td>                                        
                                         </tr>
                                     {/foreach}
                                 </table>
@@ -99,4 +101,3 @@
             
         </body>
     </html>
-    

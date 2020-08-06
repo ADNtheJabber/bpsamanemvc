@@ -1,42 +1,34 @@
 /* -------COMPTES------- */
 
-var enregistrerCompte = document.getElementById('submitCompte');
-enregistrerCompte.addEventListener('click', check_entrees_compte);
+let valider = document.getElementById('valider');
+valider.addEventListener("click", check_entrees_compte());
 
-var annuler = document.getElementById('reset');
-annuler.addEventListener('click', refresh);
 
-var choixCourant = document.getElementById('courant');
-choixCourant.addEventListener(click, afficherInfoCourant);
+let choixCompte = document.getElementById('typeCompte');
+choixCourant.addEventListener("click", afficherInfoCourant());
 
-var choixBloque = document.getElementById('bloque');
-choixBloque.addEventListener(click, afficherInfoBloque);
+let numCompte = document.getElementById('noCompte');
+let numCompte_m = document.getElementById('numCompte_error');
 
-var choixEpargne = document.getElementById('epargne');
-choixEpargne.addEventListener(click, afficherInfoEpargne);
+let fraisOuv = document.getElementById('fraisOuv');
+let fraisOuv_m = document.getElementById('fraisOuv_error');
 
-var numCompte = document.getElementById('noCompte');
-var numCompte_m = document.getElementById('numCompte_error');
+let remunAnnuelle = document.getElementById('remunAnnuelle');
+let remun_m = document.getElementById('remun_error');
 
-var fraisOuv = document.getElementById('fraisOuv');
-var fraisOuv_m = document.getElementById('fraisOuv_error');
+let agiosCC = document.getElementById('agiosCC');
+let agios_m = document.getElementById('agios_error');
 
-var remunAnnuelle = document.getElementById('remunAnnuelle');
-var remun_m = document.getElementById('remun_error');
+let depotInitCC = document.getElementById('depotInitialCC');
+let depotInit_m = document.getElementById('depotInit_error');
 
-var agiosCC = document.getElementById('agiosCC');
-var agios_m = document.getElementById('agios_error');
-
-var depotInitCC = document.getElementById('depotInitialCC');
-var depotInit_m = document.getElementById('depotInit_error');
-
-var date = document.getElementById('dateDeblocage');
-var date_m = document.getElementById('date_error');
+let date = document.getElementById('dateDeblocage');
+let date_m = document.getElementById('date_error');
 
 /* -------COMPTES------- */
-var compte = document.getElementById('formCompte');
-var type = document.getElementById('typeCompte');
-type.addEventListener(click, afficherChamps);
+let compte = document.getElementById('formCompte');
+let type = document.getElementById('typeCompte');
+type.addEventListener("click", afficherChamps());
 
 function afficherInfoCourant(e){
     e.preventDefault();
@@ -97,4 +89,21 @@ function check_entrees_compte(e){
         e.preventDefault();
         location.reload();
     }
-    
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+      

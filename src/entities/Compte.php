@@ -36,7 +36,17 @@ use Doctrine\Common\Collections\ArrayCollection;
         private $remuneration;
 
         /** 
-        * @Column(type="date") 
+        * @Column(type="decimal") 
+        */
+        private $agios;
+
+        /** 
+        * @Column(type="string") 
+        */
+        private $dateOuverture;
+
+        /** 
+        * @Column(type="string") 
         */
         private $dateDeblocage;
 
@@ -48,14 +58,14 @@ use Doctrine\Common\Collections\ArrayCollection;
         /**
          * Many compte have one clientPhysique. This is the owning side.
          * @ManyToOne(targetEntity="Compte", inversedBy="clientphysique")
-         * @JoinColumn(name="compte_id", referencedColumnName="id")
+         * @JoinColumn(name="idClientPhysique", referencedColumnName="id")
          */
         private $idClientPhysique;
 
         /**
          * Many compte have one clientEntreprise. This is the owning side.
          * @ManyToOne(targetEntity="Compte", inversedBy="clientmoral")
-         * @JoinColumn(name="compte_id", referencedColumnName="id")
+         * @JoinColumn(name="idClientEntreprise", referencedColumnName="id")
          */
         private $idClientEntreprise;
 
@@ -103,7 +113,23 @@ use Doctrine\Common\Collections\ArrayCollection;
         public function setRemuneration($remuneration){
             $this->remuneration = $remuneration;
         }
-    
+
+        public function getAgios(){
+            return $this->agios;
+        }
+        
+        public function setAgios($agios){
+            $this->agios = $agios;
+        }
+        
+        public function getDateOuverture(){
+            return $this->dateOuverture;
+        }
+        
+        public function setDateOuverture($dateOuverture){
+            $this->dateOuverture = $dateOuverture;
+        }
+
         public function getDateDeblocage(){
             return $this->dateDeblocage;
         }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-04 15:39:11
+/* Smarty version 3.1.30, created on 2020-08-06 15:02:09
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2964ff409705_69900334',
+  'unifunc' => 'content_5f2bff51ed7193_14195400',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ac82d63165d53d2937f4a3ba2c2d23d6e715cd1' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html',
-      1 => 1596544205,
+      1 => 1596718924,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2964ff409705_69900334 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2bff51ed7193_14195400 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,9 +35,8 @@ function content_5f2964ff409705_69900334 (Smarty_Internal_Template $_smarty_tpl)
 		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/css/style.css"/>
 		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-public/css/styleIndex.css"/>
-		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/css/samane.css"/>
 		<!-- integration de javascript dans le moteur de rendu de vue Smarty -->
@@ -82,9 +81,9 @@ Compte/index">Ajouter compte</a></li>
 								<a href="javascript:void(0)" class="dropbtn">Listes</a>
 								<div class="dropdown-content">
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientPhysique/liste">-Clients Particuliers</a>
+ClientPhysique/liste">-Particuliers</a>
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientMoral/liste">-Clients Entreprises</a>
+ClientMoral/liste">-Entreprises</a>
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Compte/liste">-Comptes</a>
 								</div>
@@ -97,65 +96,122 @@ assistance/index">Assistance</a></li>
 				   </nav>
 			<!--end of nav--> 
 		</header>
-        
-        <div class="content">
+		
+	<div class="container justify-content-center">
+			<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-10">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+							<h3 class="panel-title" style="text-transform: uppercase;">Formulaire de creation de Compte  <i class="fa fa-money"></i></h3>
+							</div>
+							<div class="panel-body">
+								<?php if (isset($_smarty_tpl->tpl_vars['log']->value)) {?>
+									<?php if ($_smarty_tpl->tpl_vars['log']->value != 0) {?>
+										<div class="alert alert-success">Données ajoutées!</div>
+									<?php } else { ?>
+										<div class="alert alert-danger">Erreur!</div>
+									<?php }?>
+								<?php }?>
+							<form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Compte/add" id="formCompte">
+								
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<select class="custom-select form-control input-sm" name="typeCompte" id="typeCompte" required >
+												<option selected>Choisir le type de Compte</option>
+												<option value="1">Compte Courant</option>
+												<option value="2">Compte Epargne et Xewel</option>
+												<option value="3">Compte Bloque</option>
+											  </select>
+										</div>
+									</div>
+								</div>
 
-            <form action="compteController" method="POST" class="myFormCompte" id="formCompte">
-                        
-                <fieldset>
-            
-                    <legend>Informations du Compte </legend>
-            
-                            <label for="typeCompte" id="TypeCompte" name="typeCompte" >Type de compte: </label><br>
-                                <select name="Compte" id="type">
-                                    <option  value="courant">Compte Courant</option>
-                                    <option  value="epargne">Compte Epargne</option>
-                                    <option value="bloque">Compte Bloque</option>
-                               </select>    
-            
-                            <label for="numeroCompte" id="numeroCompte">Numero de compte: </label>
-                                <input type="text" id="numeroCompte" name="noCompte" placeholder="numero de compte"/><br>
-                                <span id="numCompte_error"></span><br>
-            
-                            <label for="fraisOuv" id="labelFraisOuv">Frais d'Ouverture:</label>
-                                <input type="text" id="fraisOuv" name="fraisOuv" placeholder="frais d'ouverture"/><br>
-                                <span id="fraisOuv_error"></span><br>
-                                                                 
-                            <label for="remunAnnuelle" id="labelRemunAnnuelle">Montant Remuneration Annuelle:</label>
-                                <input type="text" id="remunAnnuelle" name="remu" placeholder="remuneration annuelle"/><br>
-                                <span id="remun_error"></span><br>
-            
-                            <label for="depotInitial" id="labelDepotInitialCC">Montant du dépot initial:</label>
-                                <input type="text" id="depotInitialCC" name="depotCC" placeholder="depot initial à la creation"/><br>
-                                <span id="depotInit_error"></span><br>
-            
-                            <label for="dateDeblocage" id="labelDateDeblocage">Date de RéOuverture:</label>
-                                <input type="date" id="dateDeblocage" name="dateDeblocage" placeholder="date de reouverture"/><br>
-                                <span id="date_error"></span><br>
-            
-                        <!-- <div class="form">
-                            
-                            <h2>Associer le client</h2>
-                                <div class="group flex-row-between">
-                                    <label for="">CNI &MediumSpace;&MediumSpace; </label>
-                                    <input list="trouve" type="text" name="search" id="search"  onkeyup="searchValid()" class="input"/>
-                                    <datalist id="trouve">
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control input-sm" name="numeroCompte" id="numeroCompte" placeholder="Numero de Compte" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" class="form-control input-sm" name="fraisOuverture" id="fraisOuverture" placeholder="Frais d'Ouverture" required/>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" name="depotInitial" id="depotInitial" class="form-control input-sm" placeholder="Depot initial" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" name="remuneration" id="remuneration" class="form-control input-sm" placeholder="Remuneration Annuelle" required/>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" name="agios" id="agios" class="form-control input-sm" placeholder="Agios" required/>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label for="cni">Date d'Ouverture</label>
+											<input type="date" name="dateOuverture" id="dateOuverture" class="form-control input-sm" placeholder="date d'Ouverture" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<label for="cni">Date de Deblocage</label>
+											<input type="date" name="dateDeblocage" id="dateDeblocage" class="form-control input-sm" placeholder="date de Deblocage" required/>
+										</div>
+									</div>
+								</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label for="cni">client associé</label><br>
+											<button class="btn" id="entreprisebtn"><i class="fa fa-building"></i> Entreprise</button>
+											<button class="btn" id="physiquebtn"><i class="fa fa-user-circle"></i> Particulier</button>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">										
+											
+										<input list="trouve" type="number" class="form-control input-sm" name="searchEntreprise" id="searchEntreprise"  onkeyup="searchValidEntreprise()" placeholder="saisir le numero de ninea" required/>
+										
+                                    	<input list="trouve" type="number" class="form-control input-sm" name="searchPhysique" id="searchPhysique"  onkeyup="searchValidPhysique()" placeholder="saisir le numero de cin" required/>
+									</div>
+									<datalist id="trouve">
             
                                     </datalist>
                                 </div>
-                                <div class="field" id="info">
-                                    <img src="ok.png" alt="ok">
-            
-                        </div>                       -->
-                          
-                </fieldset>
-            
-                    <div class="btns" id="boutons_formCompte">
-                        <input type="submit" id="submitCompte" value="Enregistrer"/>
-                        <input type="reset" id="reset" value="Annuler"/>
-                    </div>
-        </form>
-
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="submit" id="valider" name="valider" value="Valider" class="btn btn-success btn-block">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="reset" value="Annuler" class="btn btn-danger btn-block">
+									</div>
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
 
     <?php echo '<script'; ?>

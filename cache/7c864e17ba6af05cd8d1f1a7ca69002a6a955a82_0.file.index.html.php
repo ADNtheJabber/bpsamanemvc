@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-04 17:44:03
+/* Smarty version 3.1.30, created on 2020-08-06 14:22:36
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/welcome/index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f298243968d94_83209868',
+  'unifunc' => 'content_5f2bf60c5de4f1_12690743',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7c864e17ba6af05cd8d1f1a7ca69002a6a955a82' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/welcome/index.html',
-      1 => 1596552743,
+      1 => 1596716544,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f298243968d94_83209868 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2bf60c5de4f1_12690743 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -82,9 +82,9 @@ Compte/index">Ajouter compte</a></li>
 								<a href="javascript:void(0)" class="dropbtn">Listes</a>
 								<div class="dropdown-content">
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientPhysique/liste">-Clients Particuliers</a>
+ClientPhysique/liste">-Particuliers</a>
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientMoral/liste">-Clients Entreprises</a>
+ClientMoral/liste">-Entreprises</a>
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Compte/liste">-Comptes</a>
 								</div>
@@ -100,21 +100,9 @@ assistance/index">Assistance</a></li>
 
 		<div class="indexContent">
 
-			<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top: 40px;">
-				<div class="panel panel-info">
-					<div class="panel-heading">BIENVENUE A VOTRE MODELE MVC</div>
-					<div class="panel-body">
-						<div class="alert alert-success" style="font-size:18px; text-align:justify;">
-								Merci, l'équipe samanemvc vous remercie :) : 
-								je vous ai préparé un CRUD qui marche. Lisez la documentation.
-								<br/>Et surtout noubliez pas de configurer votre base de données : ou? Dans le dossier config
-								puis éditez le fichier database.php. Mettez à on l'etat de la base! Bon code!!!!  :)
-						</div>
-						<div id="design_js">MODELE DEVELOPPE PAR Ngor SECK ! <h1>Version 1.9.3 Doctrine ORM</h1></div>
-					</div>
-				</div>
-			</div>
-
+			
+			hello
+			
 		</div>
 		
 	</body>

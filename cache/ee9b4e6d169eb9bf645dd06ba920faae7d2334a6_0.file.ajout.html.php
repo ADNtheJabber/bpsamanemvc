@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-04 14:25:53
+/* Smarty version 3.1.30, created on 2020-08-06 16:12:25
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/clientMoral/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2953d1df58f2_38190924',
+  'unifunc' => 'content_5f2c0fc92547d1_11322861',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ee9b4e6d169eb9bf645dd06ba920faae7d2334a6' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/clientMoral/ajout.html',
-      1 => 1596543947,
+      1 => 1596723129,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2953d1df58f2_38190924 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c0fc92547d1_11322861 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,9 +35,8 @@ function content_5f2953d1df58f2_38190924 (Smarty_Internal_Template $_smarty_tpl)
 		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/css/style.css"/>
 		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-public/css/styleIndex.css"/>
-		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/css/samane.css"/>
 		<!-- integration de javascript dans le moteur de rendu de vue Smarty -->
@@ -71,88 +70,119 @@ public/image/bplogo.png" alt="logo BP"/>
 								<a href="javascript:void(0)" class="dropbtn">Ajouter un client</a>
 								<div class="dropdown-content">
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientPhysique/ajout">Client Physique</a>
+ClientPhysique/index">Client Physique</a>
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientMoral/ajout">Client Moral</a>
+ClientMoral/index">Client Moral</a>
 								</div>
 							</li>
 							<li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-Compte/ajout">Ajouter compte</a></li>
+Compte/index">Ajouter compte</a></li>
 							<li class="dropdown">
 								<a href="javascript:void(0)" class="dropbtn">Listes</a>
 								<div class="dropdown-content">
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientPhysique/liste">-Clients Particuliers</a>
+ClientPhysique/liste">-Particuliers</a>
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientMoral/liste">-Clients Entreprises</a>
+ClientMoral/liste">-Entreprises</a>
 								  <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Compte/liste">-Comptes</a>
 								</div>
 							</li>
 							<li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-virement">Virement</a></li>
+virement/index">Virement</a></li>
 							<li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-assistance">Assistance</a></li>
+assistance/index">Assistance</a></li>
 						</ul>
 				   </nav>
 			<!--end of nav--> 
-        </header>
-        
-        <div class="content">
-            <form action="clientMoralController" class="myFormEntreprise" method="POST" id="clientEntreprise">
+		</header>
+		
+		<div class="container justify-content-center">
+			<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-10">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+							<h3 class="panel-title" style="text-transform: uppercase;"><i class="fa fa-user-circle"></i>  Formulaire de creation de Client Physique</i></h3>
+							</div>
+							<div class="panel-body">
+								<?php if (isset($_smarty_tpl->tpl_vars['log']->value)) {?>
+									<?php if ($_smarty_tpl->tpl_vars['log']->value != 0) {?>
+										<div class="alert alert-success">Données ajoutées!</div>
+									<?php } else { ?>
+										<div class="alert alert-danger">Erreur!</div>
+									<?php }?>
+								<?php }?>
+							<form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+ClientMoral/add" id="formClientMoral">
+			
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control input-sm" name="nom" id="nom" placeholder="Nom de l'Entreprise" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control input-sm" name="raisonSociale" id="raisonSociale" placeholder="Raison sociale" required/>
+										</div>
+									</div>
+								</div>
 
-                <div class="flexform">
-            
-                    <div id="form1">
-            
-                        <label for="nom" id="labelNomEntreprise">Nom de l'entreprise: </label><br>
-                            <input type="text" id="nom_client_entreprise" name="nomEntreprise" placeholder="Nom"/><br>
-                            <span id="name_error"></span><br>
-            
-                        <label for="adresse" id="labelAdresseEntreprise">Adresse: </label><br>
-                            <input type="text" id="adresse_client_entreprise" name="adresseEntreprise" placeholder="Adresse"/><br>
-                            <span id="adress_error"></span><br>
-            
-                        <label for="telephone" id="labelTelephone">Telephone: </label><br>
-                            <input type="text" id="tel_client_entreprise" name="telEntreprise" placeholder="Telephone"/><br>
-                            <span id="tel_error"></span><br>
-            
-                        <label for="email" id="labelEmail"></label>Email: </label><br>
-                            <input type="text" id="email_client_entreprise" name="emailEntreprise" placeholder="email"/><br>
-                            <span id="email.error"></span><br>
-            
-                    </div>
-            
-                    <div id="form2">
-            
-                        <label for="ninea" id="labelNinea">Ninea: </label><br>
-                            <input type="text" id="ninea" name="ninea" placeholder="ninea"/><br>
-                            <span id="ninea_error"></span><br>
-            
-                        <label for="regiscommerce" id="labelRegisCommerce">Registre de commerce: </label><br>
-                            <input type="text" id="regiscommerce" name="regiscommerce" placeholder="registre de commerce"/><br>
-                            <span id="regiscom_error"></span><br>
-                            
-                    </div>
-            
-                </div>
-            
-                    <div class="btns" id="boutons_formClient">
-                        <input type="submit" id="submitClient" value="Enregistrer"/>
-                        <input type="reset" id="reset" value="Annuler"/>
-                    </div>
-            
-            </form>
-        </div>
-        <?php echo '<script'; ?>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control input-sm" name="email" id="email" placeholder="Email" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" class="form-control input-sm" name="tel" id="tel" placeholder="Telephone" required/>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="adresse" id="adresse" class="form-control input-sm" placeholder="Adresse" required/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" name="ninea" id="ninea" class="form-control input-sm" placeholder="Ninéa" required/>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="registreCommerce" id="registreCommerce" class="form-control input-sm" placeholder="Registre de Commerce" required/>
+										</div>
+									</div>
+								</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="submit" id="valider" name="valider" value="Valider" class="btn btn-success btn-block">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="reset" value="Annuler" class="btn btn-danger btn-block">
+									</div>
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-public/js/scriptCompte.js"><?php echo '</script'; ?>
+public/js/scriptClient.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-public/js/ajax.js"><?php echo '</script'; ?>
->
-    </body>
-</html>
-    <?php }
+	</body>
+</html><?php }
 }
