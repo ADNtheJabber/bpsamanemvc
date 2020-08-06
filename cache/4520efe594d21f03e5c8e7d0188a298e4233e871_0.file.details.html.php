@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-06 18:51:16
+/* Smarty version 3.1.30, created on 2020-08-06 18:58:25
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/compte/details.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c3504cf04c1_55149241',
+  'unifunc' => 'content_5f2c36b1415a50_18483375',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4520efe594d21f03e5c8e7d0188a298e4233e871' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/compte/details.html',
-      1 => 1596732669,
+      1 => 1596732858,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c3504cf04c1_55149241 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c36b1415a50_18483375 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -142,7 +142,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['compte']->value) {
                                             <td><?php echo $_smarty_tpl->tpl_vars['compte']->value->getDateOuverture();?>
 </td>
                                             <td><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-">Voir le proprietaire</a> </td>                                        
+ClientPhysique/findById">Voir le proprietaire</a> </td>                                        
                                         </tr>
                                     <?php
 }
