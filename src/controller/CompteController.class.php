@@ -16,16 +16,6 @@ class CompteController extends Controller {
         return $this->view->load("compte/ajout");
     }
 
-    /** 
-     * url pattern for this method
-     * localhost/bpsamanemvc/Compte/liste
-     */
-    public function liste(){
-        $comptedb = new CompteRepository;
-        
-        $data['comptes'] = $comptedb->liste();
-        return $this->view->load("compte/liste", $data);
-    }
      /** 
      * url pattern for this method
      * localhost/bpsamanemvc/compte/add
@@ -43,8 +33,17 @@ class CompteController extends Controller {
         if (!empty($_POST)) {
             $compte = new Compte();
             $compteRepository = new CompteRepository();
-         
-        $compte->setTypeCompte($_POST['typeCompte']);
+        if ($_POST['typeCompte']==1) {
+            $compte->setTypeCompte('Courant');
+        } 
+        else if ($_POST['typeCompte']==2) {
+            $compte->setTypeCompte('Epargne');
+        } 
+        else if ($_POST['typeCompte']==3) {
+            $compte->setTypeCompte('Bloque');
+        }
+        
+        //$compte->setTypeCompte($_POST['typeCompte']);
         $compte->setNumCompte($_POST['numeroCompte']);
         $compte->setFraisOuv($_POST['fraisOuverture']);
         $compte->setRemuneration($_POST['remuneration']);
@@ -55,18 +54,36 @@ class CompteController extends Controller {
         $compte->setIdClientEntreprise(NULL);
         $compte->setIdClientPhysique(NULL);
             
-        var_dump($compte);
-
-        $log = $compteRepository->add($compte);
-
-        var_dump($log);
-        $data['ok'] = $log;
+        //var_dump($compte)
+        $data['ok'] = $compteRepository->add($compte);
         }
         return $this->view->load("compte/ajout", $data);
     }
     else {
             return $this->view->load("compte/ajout");
         }
+    }
+
+    /** 
+     * url pattern for this method
+     * localhost/bpsamanemvc/Compte/liste
+     */
+    public function liste(){
+        $comptedb = new CompteRepository;
+        
+        $data['comptes'] = $comptedb->liste();
+        return $this->view->load("compte/liste", $data);
+    }
+
+    /** 
+     * url pattern for this method
+     * localhost/bpsamanemvc/Compte/liste
+     */
+    public function details(){
+        $comptedb = new CompteRepository;
+        
+        $data['comptes'] = $comptedb->liste();
+        return $this->view->load("compte/details", $data);
     }
 
 

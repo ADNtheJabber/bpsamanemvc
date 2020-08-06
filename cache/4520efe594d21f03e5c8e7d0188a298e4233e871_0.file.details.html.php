@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-06 18:43:20
-  from "/opt/lampp/htdocs/bpsamanemvc/src/view/compte/liste.html" */
+/* Smarty version 3.1.30, created on 2020-08-06 18:51:16
+  from "/opt/lampp/htdocs/bpsamanemvc/src/view/compte/details.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c3328b03a35_56986780',
+  'unifunc' => 'content_5f2c3504cf04c1_55149241',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '42b3fb55a4383235a93a66eb4f5143684d2a5377' => 
+    '4520efe594d21f03e5c8e7d0188a298e4233e871' => 
     array (
-      0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/compte/liste.html',
-      1 => 1596732195,
+      0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/compte/details.html',
+      1 => 1596732669,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c3328b03a35_56986780 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c3504cf04c1_55149241 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -110,13 +110,14 @@ assistance/index">Assistance</a></li>
                             <?php if ($_smarty_tpl->tpl_vars['comptes']->value != null) {?>
                                 <table class="table table-bordered table-stripped">
                                     <tr>
-										<th>id du compte</th>
-                                        <th>Numero de compte</th>
-                                        <th>Type de compte</th>
+										<th>id</th>
+                                        <th>Numero</th>
+                                        <th>Type</th>
                                         <th>Solde</th>
-										<th>idProprietaire</th>
-										<th>Action</th>
-                                        <th>Action</th>
+                                        <th>Remuneration</th>
+                                        <th>Frais d'Ouverture</th>
+                                        <th>Agios</th>
+                                        <th>Date d'Ouverture</th>
                                     </tr>
                                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['comptes']->value, 'compte');
@@ -132,12 +133,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['compte']->value) {
 </td>
                                             <td><?php echo $_smarty_tpl->tpl_vars['compte']->value->getSolde();?>
 </td>
-											<td><?php echo $_smarty_tpl->tpl_vars['compte']->value->getIdClientPhysique();?>
+                                            <td><?php echo $_smarty_tpl->tpl_vars['compte']->value->getRemuneration();?>
 </td>
-											<td><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-Compte/details"><i class="fa fa-plus"></i> details</a></td>
+                                            <td><?php echo $_smarty_tpl->tpl_vars['compte']->value->getFraisOuv();?>
+</td>
+                                            <td><?php echo $_smarty_tpl->tpl_vars['compte']->value->getAgios();?>
+</td>
+                                            <td><?php echo $_smarty_tpl->tpl_vars['compte']->value->getDateOuverture();?>
+</td>
                                             <td><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientPhysique/findById">Voir le proprietaire</a></td>                                        
+">Voir le proprietaire</a> </td>                                        
                                         </tr>
                                     <?php
 }
@@ -159,6 +164,5 @@ Welcome/index">Accueil</a>
         </div>
             
         </body>
-    </html>
-    <?php }
+    </html><?php }
 }

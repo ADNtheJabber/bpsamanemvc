@@ -70,12 +70,14 @@
                             {if $comptes != null}
                                 <table class="table table-bordered table-stripped">
                                     <tr>
-										<th>id du compte</th>
-                                        <th>Numero de compte</th>
-                                        <th>Type de compte</th>
+										<th>id</th>
+                                        <th>Numero</th>
+                                        <th>Type</th>
                                         <th>Solde</th>
-                                        <th>idProprietaire</th>
-                                        <th>Action</th>
+                                        <th>Remuneration</th>
+                                        <th>Frais d'Ouverture</th>
+                                        <th>Agios</th>
+                                        <th>Date d'Ouverture</th>
                                     </tr>
                                     {foreach from=$comptes item=compte}
                                         <tr>
@@ -83,8 +85,11 @@
                                             <td>{$compte->getNumCompte()}</td>
                                             <td>{$compte->getTypeCompte()}</td>
                                             <td>{$compte->getSolde()}</td>
-                                            <td>{$compte->getIdClientPhysique()}</td>
-                                            <td><a href="{$url_base}">Voir le proprietaire</a> </td>                                        
+                                            <td>{$compte->getRemuneration()}</td>
+                                            <td>{$compte->getFraisOuv()}</td>
+                                            <td>{$compte->getAgios()}</td>
+                                            <td>{$compte->getDateOuverture()}</td>
+                                            <td><a href="{$url_base}ClientPhysique/findById">Voir le proprietaire</a> </td>                                        
                                         </tr>
                                     {/foreach}
                                 </table>

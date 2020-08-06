@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-06 15:02:09
+/* Smarty version 3.1.30, created on 2020-08-06 18:39:40
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2bff51ed7193_14195400',
+  'unifunc' => 'content_5f2c324c3dbef6_73157718',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ac82d63165d53d2937f4a3ba2c2d23d6e715cd1' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html',
-      1 => 1596718924,
+      1 => 1596731134,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2bff51ed7193_14195400 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c324c3dbef6_73157718 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -102,11 +102,11 @@ assistance/index">Assistance</a></li>
 			<div class="col-xs-12 col-sm-8 col-md-10">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-							<h3 class="panel-title" style="text-transform: uppercase;">Formulaire de creation de Compte  <i class="fa fa-money"></i></h3>
+							<h3 class="panel-title" style="text-transform: uppercase;"><i class="fa fa-money"></i>  Formulaire de creation de Compte</h3>
 							</div>
 							<div class="panel-body">
-								<?php if (isset($_smarty_tpl->tpl_vars['log']->value)) {?>
-									<?php if ($_smarty_tpl->tpl_vars['log']->value != 0) {?>
+								<?php if (isset($_smarty_tpl->tpl_vars['ok']->value)) {?>
+									<?php if ($_smarty_tpl->tpl_vars['ok']->value != 0) {?>
 										<div class="alert alert-success">Données ajoutées!</div>
 									<?php } else { ?>
 										<div class="alert alert-danger">Erreur!</div>
@@ -119,7 +119,7 @@ Compte/add" id="formCompte">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
 											<select class="custom-select form-control input-sm" name="typeCompte" id="typeCompte" required >
-												<option selected>Choisir le type de Compte</option>
+												<option value="0" selected>Choisir le type de Compte</option>
 												<option value="1">Compte Courant</option>
 												<option value="2">Compte Epargne et Xewel</option>
 												<option value="3">Compte Bloque</option>
