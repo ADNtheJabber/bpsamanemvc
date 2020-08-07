@@ -33,19 +33,19 @@ class CompteRepository extends Model {
 		}
 	}
 
-	public function autosearchEntreprise(){
+	public function autosearchEntreprise($search){
 
 		if($this->db != null)
 		{
-            return $this->db->createQuery("SELECT c FROM ClientMoral c WHERE c.ninea LIKE '%" .$_POST["searchEntreprise"]."%'");
+            return $this->db->createQuery("SELECT c FROM ClientMoral c WHERE c.ninea LIKE '%" .$search."%'");
 		}
 	}
 
-	public function autosearchPhysique(){
+	public function autosearchPhysique($search){
 
 		if($this->db != null)
 		{
-            return $this->db->createQuery("SELECT c FROM ClientPhysique c WHERE c.cni LIKE '%" .$_POST["searchPhysique"]."%'");
+            return $this->db->createQuery("SELECT c FROM ClientPhysique c WHERE c.cni LIKE '%" .$search."%'");
 		}
 	}
 }

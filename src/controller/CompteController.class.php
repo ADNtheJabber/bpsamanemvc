@@ -26,7 +26,7 @@ class CompteController extends Controller {
         if (isset($_POST['valider'])) {
         
         extract($_POST);
-        $data['ok'] = 0;
+        $data['ok'] = '';
 
         if (!empty($_POST)) {
 
@@ -43,25 +43,25 @@ class CompteController extends Controller {
                 $compte->setTypeCompte('Bloque');
             }
             
-        //$compte->setTypeCompte($_POST['typeCompte']);
-        $compte->setNumCompte($_POST['numeroCompte']);
-        $compte->setFraisOuv($_POST['fraisOuverture']);
-        $compte->setRemuneration($_POST['remuneration']);
-        $compte->setSolde($_POST['depotInitial']);
-        $compte->setAgios($_POST['agios']);
-        $compte->setDateOuverture($_POST['dateOuverture']);
-        $compte->setDateDeblocage($_POST['dateDeblocage']);
-        $compte->setIdClientEntreprise($_POST['searchEntreprise']);
-        $compte->setIdClientPhysique($_POST['searchPhysique']);
-            
-        //var_dump($compte)
-        $data['ok'] = $compteRepository->add($compte);
+            //$compte->setTypeCompte($_POST['typeCompte']);
+            $compte->setNumCompte($_POST['numeroCompte']);
+            $compte->setFraisOuv($_POST['fraisOuverture']);
+            $compte->setRemuneration($_POST['remuneration']);
+            $compte->setSolde($_POST['depotInitial']);
+            $compte->setAgios($_POST['agios']);
+            $compte->setDateOuverture($_POST['dateOuverture']);
+            $compte->setDateDeblocage($_POST['dateDeblocage']);
+            $compte->setIdClientEntreprise($_POST['searchEntreprise']);
+            $compte->setIdClientPhysique($_POST['searchPhysique']);
+                
+            //var_dump($compte)
+            $data['ok'] = $compteRepository->add($compte);
+            }
+            return $this->view->load("compte/ajout", $data);
         }
-        return $this->view->load("compte/ajout", $data);
-    }
-    else {
-            return $this->view->load("compte/ajout");
-        }
+        else {
+                return $this->view->load("compte/ajout");
+            }
     }
 
     /** 
@@ -103,32 +103,55 @@ class CompteController extends Controller {
      * localhost/bpsamanemvc/compte
      */
     public function searchEntreprise() {
-        $comptedb = new CompteRepository;
 
+        extract($_POST);
         $data['Mresults'] = '';
-        $data['Mresults'] = $comptedb->autosearchEntreprise($_POST["searchEntreprise"]);
-        if (!empty($data)) {
-            return $this->view->load("compte/ajout", $data);
-        }
-        else{
-            $Mmessage = "client moral introuvable, essayer de chercher parmi les clients Physiques !";
-            return $this->view->load("compte/ajout", $Mmessage);
-        }
-        //return $this->view->load("compte/details", $data);
-    }
-    public function searchPhysique() {
-        $comptedb = new CompteRepository;
+        
+            if(isset($_POST['searchEntreprise'])){
 
+                if($_POST['searchEntreprise']!=''){
+                    $search = $_POST['searchEntreprise'];
+
+                    $comptedb = new CompteRepository;                    
+
+                    $data['Mresults'] = $comptedb->autosearchEntreprise($search);
+                    
+                }
+            }
+
+            if (!empty($data)) {
+                return $this->view->load("compte/ajout", $data);
+            }
+            else{
+                $Mmessage = "client moral introuvable, essayer de chercher parmi les clients Physiques !";
+                return $this->view->load("compte/ajout", $Mmessage);
+            }
+      }
+
+    public function searchPhysique() {
+        
+        extract($_POST);
         $data['Presults'] = '';
-        $data['Presults'] = $comptedb->autosearchPhysique($_POST["searchPhysique"]);
-        if (!empty($data)) {
-            return $this->view->load("compte/ajout", $data);
-        }
-        else{
-            $Pmessage = "client physique introuvable, essayer de chercher parmi les clients Entreprises !";
-            return $this->view->load("compte/ajout", $Pmessage);
-        }
-        //return $this->view->load("compte/details", $data);
+        
+            if(isset($_POST['searchPhysique'])){
+
+                if($_POST['searchPhysique']!=''){
+                    $search = $_POST['searchPhysique'];
+
+                    $comptedb = new CompteRepository;                    
+
+                    $data['Presults'] = $comptedb->autosearchPhysique($search);
+                    
+                }
+            }
+
+            if (!empty($data)) {
+                return $this->view->load("compte/ajout", $data);
+            }
+            else{
+                $Mmessage = "client moral introuvable, essayer de chercher parmi les clients Physiques !";
+                return $this->view->load("compte/ajout", $Mmessage);
+            }
     }
 
 }   

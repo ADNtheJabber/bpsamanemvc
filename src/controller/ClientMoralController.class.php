@@ -45,6 +45,7 @@ class clientMoralController extends Controller {
                 $clientMoralRepository = new ClientMoralRepository();
                     
                 $clientM->setNom($_POST['nom']);
+                $clientM->setRaisonSociale($_POST['raisonSociale']);
                 $clientM->setAdresse($_POST['adresse']);
                 $clientM->setTel($_POST['tel']);
                 $clientM->setEmail($_POST['email']);

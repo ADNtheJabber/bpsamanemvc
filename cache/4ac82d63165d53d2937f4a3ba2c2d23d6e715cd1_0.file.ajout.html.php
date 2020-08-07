@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-07 12:44:23
+/* Smarty version 3.1.30, created on 2020-08-07 14:04:50
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2d30878f5976_50469488',
+  'unifunc' => 'content_5f2d4362300121_93230971',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ac82d63165d53d2937f4a3ba2c2d23d6e715cd1' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html',
-      1 => 1596794605,
+      1 => 1596801871,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2d30878f5976_50469488 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2d4362300121_93230971 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -315,10 +315,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/js/scriptCompte.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-public/js/jquery.js"><?php echo '</script'; ?>
 >
 		
 	</body>

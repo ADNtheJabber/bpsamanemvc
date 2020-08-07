@@ -40,7 +40,7 @@ function afficherInfo(e){
                     url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
                     method:"post",
                     data:{search:inputM},
-                    dataType:"text",
+                    dataType:'JSON',
                     success:function(data) {
                       $('#result').html('data');
 
@@ -70,8 +70,8 @@ function afficherInfo(e){
               $.ajax({
                   url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
                   method:"post",
-                  data:{search:inputP},
-                  dataType:"text",
+                  data:{ search:inputP },
+                  dataType:'JSON',
                   success:function(data) {
                     $('#result').html('data');
 
@@ -93,3 +93,60 @@ function afficherInfo(e){
             }
         })
     })
+
+    function searchValidEntreprise() {
+
+        var requete = new XMLHttpRequest();
+    
+        var url = "/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php";
+    
+        var search = document.getElementById('searchEntreprise').value;
+    
+        var arg = "seachEntreprise="+search;
+    
+        requete.open("POST",url,true);
+    
+        requete.setRequestHeader("Content-Type: application/json; charset=UTF-8");
+    
+        requete.onreadystatechange = function(){
+    
+            if(requete.readyState == 4 && requete.status == 200){
+                var data = requete.responseText;
+                ok = document.getElementById("result");
+                ok.innerHTML = data;
+            }
+        };
+        requete.send(arg);
+        document.getElementById("result").innerHTML = "Recherche en cours...";
+    
+    }
+    
+    
+    function searchValidPhysique() {
+    
+        var requete = new XMLHttpRequest();
+    
+        var url = "/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php";
+    
+        var search = document.getElementById('searchPhysique').value;
+    
+        var arg = "seachPhysique="+search;
+    
+        requete.open("POST",url,true);
+    
+        requete.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    
+        requete.onreadystatechange = function(){
+    
+            if(requete.readyState == 4 && requete.status == 200){
+                var data = requete.responseText;
+                ok = document.getElementById("result");
+                ok.innerHTML = data;
+            }
+        };
+        requete.send(arg);
+        document.getElementById("result").innerHTML = "Recherche en cours...";
+    
+    }
+    
+    
