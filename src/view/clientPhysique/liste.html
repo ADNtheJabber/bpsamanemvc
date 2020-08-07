@@ -69,11 +69,12 @@
                             Liste des clients physiques
                         </div>
                         {if isset($clientsP)}
-                            {if $clientsM != null}
+                            {if $clientsP != null}
                                 <table class="table table-bordered table-stripped">
                                     <tr>
                                         <th>Identifiant</th>
-                                        <th>Nom</th>
+										<th>Nom</th>
+										<th>Prenom</th>
                                         <th>Adresse</th>
                                         <th>Telephone</th>
                                         <th>Email</th>
@@ -81,9 +82,10 @@
                                     {foreach from=$clientsP item=client}
                                         <tr>
                                             <td>{$client->getId()}</td>
-                                            <td>{$client->getNom()}</td>
+											<td>{$client->getNom()}</td>
+											<td>{$client->getPrenom()}</td>
                                             <td>{$client->getAdresse()}</td>
-                                            <td>{$client->getTelephone()}</td>
+                                            <td>{$client->getTel()}</td>
                                             <td>{$client->getEmail()}</td>                                        
                                         </tr>
                                     {/foreach}

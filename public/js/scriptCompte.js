@@ -1,120 +1,45 @@
-/* -------COMPTES------- */
+let typeCompte = document.getElementById('typeCompte');
+typeCompte.addEventListener("click", afficherInfo());
 
-let valider = document.getElementById('valider');
-valider.addEventListener("click", check_entrees_compte());
+let numeroCompte = document.getElementsById('numeroCompte');
 
+let fraisOuverture = document.getElementsById('fraisOuverture');
 
-let choixCompte = document.getElementById('typeCompte');
-choixCourant.addEventListener("click", afficherInfoCourant());
+let depotInitial = document.getElementsById('depotInitial');
 
-let numCompte = document.getElementById('noCompte');
-let numCompte_m = document.getElementById('numCompte_error');
+let remuneration = document.getElementsById('remuneration');
 
-let fraisOuv = document.getElementById('fraisOuv');
-let fraisOuv_m = document.getElementById('fraisOuv_error');
+let agios = document.getElementsById('agios');
 
-let remunAnnuelle = document.getElementById('remunAnnuelle');
-let remun_m = document.getElementById('remun_error');
+let dateOuverture = document.getElementsById('dateOuverture');
 
-let agiosCC = document.getElementById('agiosCC');
-let agios_m = document.getElementById('agios_error');
+let dateDeblocage = document.getElementsById('dateDeblocage');
 
-let depotInitCC = document.getElementById('depotInitialCC');
-let depotInit_m = document.getElementById('depotInit_error');
+let inputP = document.getElementsById('searchPhysique');
+let inputM = document.getElementsById('searchEntreprise');
 
-let date = document.getElementById('dateDeblocage');
-let date_m = document.getElementById('date_error');
-
-/* -------COMPTES------- */
-let compte = document.getElementById('formCompte');
-let type = document.getElementById('typeCompte');
-type.addEventListener("click", afficherChamps());
-
-function afficherInfoCourant(e){
+function afficherInfo(e){
     e.preventDefault();
-    agiosCC.style.display = 'block';
-    depotInitCC.style.display = 'block'
-    fraisOuv.style.display = 'none';
-    remunAnnuelle.style.display = 'none';
-    date.style.display = 'none';
+   if (typeCompte == 0) {
+       alert('Donner le type du compte');
+   } 
+   else if(typeCompte == 1){
+       
+   }
+   else if (typeCompte == 2){
+
+   }
 }
 
-function afficherInfoBloque(){
-    e.preventDefault();
-    fraisOuv.style.display = 'block';
-    remunAnnuelle.style.display = 'block';
-    date.style.display = 'block';
-    agiosCC.style.display = 'none';
-    depotInitCC.style.display = 'none'
-}
-
-function afficherInfoEpargne(){
-    e.preventDefault();
-    fraisOuv.style.display = 'block';
-    remunAnnuelle.style.display = 'block';
-    date.style.display = 'none';
-    agiosCC.style.display = 'none';
-    depotInitCC.style.display = 'none'
-}
-
-
-function check_entrees_compte(e){
-
-    if(!fraisOuv.value || fraisOuv.value > 10000){
-        e.preventDefault();
-        fraisOuv_m.textContent = 'les frais ne depassent pas 10 000f';
-        fraisOuv_m.style.color = 'red'; 
-    }
-
-    else if(!remunAnnuelle.value || remunAnnuelle.value < 5000){
-        e.preventDefault();
-        remun_m.textContent = 'minimum 5000f';
-        remun_m.style.color = 'red'; 
-    }
-
-    else if (!agiosCC.value){
-        e.preventDefault();
-        agios_m.textContent = 'renseignez le champs';
-        agios_m.style.color = 'red';
-    }
-
-    else if (!depotInitCC.value || depotInitCC < 15000){
-        e.preventDefault();
-        depotInit_m.textContent = 'minimum 15000f en depot initial';
-        depotInit_m.style.color = 'red';
-    }
-}
-
-    function refresh(e) {
-        e.preventDefault();
-        location.reload();
-    }
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-      $(document).ready(function () {
-          $('#searchEntreprise').keyup(function(){
-              var txt = $(this).val();
-              if (txt != '') {
+    $(document).ready(function () {
+          $('#searchEntreprise').onkeyup(function(){
+              var inputM = $(this).val();
+              if (inputM != '') {
                 $('#result').html('');
                 $.ajax({
                     url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
                     method:"post",
-                    data:{search:txt},
+                    data:{search:inputM},
                     dataType:"text",
                     success:function(data) {
                       $('#result').html('data');
@@ -127,7 +52,7 @@ function check_entrees_compte(e){
                   $.ajax({
                       url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
                       method:"post",
-                      data:{search:txt},
+                      data:{search:inputP},
                       dataType:"text",
                       success:function(data) {
                         $('#result').html('data');
@@ -136,4 +61,35 @@ function check_entrees_compte(e){
                   });
               }
           })
-      })
+      });
+      $(document).ready(function () {
+        $('#searchPhysique').keyup(function(){
+            var inputP = $(this).val();
+            if (inputP != '') {
+              $('#result').html('');
+              $.ajax({
+                  url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
+                  method:"post",
+                  data:{search:inputP},
+                  dataType:"text",
+                  success:function(data) {
+                    $('#result').html('data');
+
+                  }
+              });
+            }
+            else {
+                $('#result').html('');
+                $.ajax({
+                    url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
+                    method:"post",
+                    data:{search:inputP},
+                    dataType:"text",
+                    success:function(data) {
+                      $('#result').html('data');
+
+                    }
+                });
+            }
+        })
+    })

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-06 18:39:40
+/* Smarty version 3.1.30, created on 2020-08-07 12:44:23
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c324c3dbef6_73157718',
+  'unifunc' => 'content_5f2d30878f5976_50469488',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4ac82d63165d53d2937f4a3ba2c2d23d6e715cd1' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/compte/ajout.html',
-      1 => 1596731134,
+      1 => 1596794605,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c324c3dbef6_73157718 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2d30878f5976_50469488 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -118,7 +118,7 @@ Compte/add" id="formCompte">
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<select class="custom-select form-control input-sm" name="typeCompte" id="typeCompte" required >
+											<select class="custom-select form-control input-sm" name="typeCompte" id="typeCompte">
 												<option value="0" selected>Choisir le type de Compte</option>
 												<option value="1">Compte Courant</option>
 												<option value="2">Compte Epargne et Xewel</option>
@@ -131,12 +131,12 @@ Compte/add" id="formCompte">
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" class="form-control input-sm" name="numeroCompte" id="numeroCompte" placeholder="Numero de Compte" required/>
+											<input type="text" class="form-control input-sm" name="numeroCompte" id="numeroCompte" placeholder="Numero de Compte"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" class="form-control input-sm" name="fraisOuverture" id="fraisOuverture" placeholder="Frais d'Ouverture" required/>
+											<input type="number" class="form-control input-sm" name="fraisOuverture" id="fraisOuverture" placeholder="Frais d'Ouverture"/>
 										</div>
 									</div>
 								</div>
@@ -144,19 +144,19 @@ Compte/add" id="formCompte">
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" name="depotInitial" id="depotInitial" class="form-control input-sm" placeholder="Depot initial" required/>
+											<input type="number" name="depotInitial" id="depotInitial" class="form-control input-sm" placeholder="Depot initial"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" name="remuneration" id="remuneration" class="form-control input-sm" placeholder="Remuneration Annuelle" required/>
+											<input type="number" name="remuneration" id="remuneration" class="form-control input-sm" placeholder="Remuneration Annuelle"/>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" name="agios" id="agios" class="form-control input-sm" placeholder="Agios" required/>
+											<input type="number" name="agios" id="agios" class="form-control input-sm" placeholder="Agios"/>
 										</div>
 									</div>
 								</div>
@@ -164,13 +164,13 @@ Compte/add" id="formCompte">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
 											<label for="cni">Date d'Ouverture</label>
-											<input type="date" name="dateOuverture" id="dateOuverture" class="form-control input-sm" placeholder="date d'Ouverture" required/>
+											<input type="date" name="dateOuverture" id="dateOuverture" class="form-control input-sm" placeholder="date d'Ouverture"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
 											<label for="cni">Date de Deblocage</label>
-											<input type="date" name="dateDeblocage" id="dateDeblocage" class="form-control input-sm" placeholder="date de Deblocage" required/>
+											<input type="date" name="dateDeblocage" id="dateDeblocage" class="form-control input-sm" placeholder="date de Deblocage"/>
 										</div>
 									</div>
 								</div>
@@ -185,14 +185,112 @@ Compte/add" id="formCompte">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">										
 											
-										<input list="trouve" type="number" class="form-control input-sm" name="searchEntreprise" id="searchEntreprise"  onkeyup="searchValidEntreprise()" placeholder="saisir le numero de ninea" required/>
+										<input type="text" class="form-control input-sm" name="searchEntreprise" id="searchEntreprise"  onkeyup="searchValidEntreprise()" placeholder="saisir le numero de ninea"/>
 										
-                                    	<input list="trouve" type="number" class="form-control input-sm" name="searchPhysique" id="searchPhysique"  onkeyup="searchValidPhysique()" placeholder="saisir le numero de cin" required/>
+                                    	<input type="text" class="form-control input-sm" name="searchPhysique" id="searchPhysique"  onkeyup="searchValidPhysique()" placeholder="saisir le numero de cin"/>
 									</div>
-									<datalist id="trouve">
+									<div id="result">
             
-                                    </datalist>
+                                    </div>
                                 </div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<?php if (isset($_smarty_tpl->tpl_vars['Mresults']->value)) {?>
+										<?php if ($_smarty_tpl->tpl_vars['Mresults']->value != null) {?>
+											<table class="table table-bordered table-stripped">
+												<tr>
+													<th>Identifiant</th>
+													<th>Nom</th>
+													<th>Adresse</th>
+													<th>Telephone</th>
+													<th>Email</th>
+													<th>Ninea</th>
+													<th>Registre de Commerce</th>
+												</tr>
+												<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Mresults']->value, 'Mresult');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['Mresult']->value) {
+?>
+													<tr>
+														<td><?php echo $_smarty_tpl->tpl_vars['result']->value->getId();?>
+</td>
+														<td><?php echo $_smarty_tpl->tpl_vars['result']->value->getNom();?>
+</td>
+														<td><?php echo $_smarty_tpl->tpl_vars['result']->value->getAdresse();?>
+</td>
+														<td><?php echo $_smarty_tpl->tpl_vars['result']->value->getTelephone();?>
+</td>
+														<td><?php echo $_smarty_tpl->tpl_vars['result']->value->getEmail();?>
+</td>
+														<td><?php echo $_smarty_tpl->tpl_vars['result']->value->getNinea();?>
+</td>
+														<td><?php echo $_smarty_tpl->tpl_vars['result']->value->getRegiscom();?>
+</td>                                       
+													</tr>
+												<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+											</table>
+										<?php } else { ?>
+											<?php echo $_smarty_tpl->tpl_vars['Mmessage']->value;?>
+	
+										<?php }?>
+									<?php }?>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<?php if (isset($_smarty_tpl->tpl_vars['Presults']->value)) {?>
+									<?php if ($_smarty_tpl->tpl_vars['Presults']->value != null) {?>
+										<table class="table table-bordered table-stripped">
+											<tr>
+												<th>Identifiant</th>
+												<th>Nom</th>
+												<th>Prenom</th>
+												<th>Adresse</th>
+												<th>Telephone</th>
+												<th>Email</th>
+												<th>Numero de CNI</th>
+											</tr>
+											<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['Presults']->value, 'Presult');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['Presult']->value) {
+?>
+												<tr>
+													<td><?php echo $_smarty_tpl->tpl_vars['Presult']->value->getId();?>
+</td>
+													<td><?php echo $_smarty_tpl->tpl_vars['Presult']->value->getNom();?>
+</td>
+													<td><?php echo $_smarty_tpl->tpl_vars['Presult']->value->getPrenom();?>
+</td>
+													<td><?php echo $_smarty_tpl->tpl_vars['Presult']->value->getAdresse();?>
+</td>
+													<td><?php echo $_smarty_tpl->tpl_vars['Presult']->value->getTelephone();?>
+</td>
+													<td><?php echo $_smarty_tpl->tpl_vars['Presult']->value->getEmail();?>
+</td>
+													<td><?php echo $_smarty_tpl->tpl_vars['Presult']->value->getIdentifiant();?>
+</td>                                        
+												</tr>
+											<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+										</table>
+									<?php } else { ?>
+										<?php echo $_smarty_tpl->tpl_vars['Pmessage']->value;?>
+
+									<?php }?>
+								<?php }?>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -220,7 +318,7 @@ public/js/scriptCompte.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-public/js/ajax.js"><?php echo '</script'; ?>
+public/js/jquery.js"><?php echo '</script'; ?>
 >
 		
 	</body>

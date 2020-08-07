@@ -71,7 +71,8 @@
                                 <table class="table table-bordered table-stripped">
                                     <tr>
                                         <th>Identifiant</th>
-                                        <th>Nom</th>
+										<th>Nom</th>
+										<th>Raison Sociale</th>
                                         <th>Adresse</th>
                                         <th>Telephone</th>
                                         <th>Email</th>
@@ -79,9 +80,10 @@
                                     {foreach from=$clientsM item=client}
                                         <tr>
                                             <td>{$client->getId()}</td>
-                                            <td>{$client->getNom()}</td>
+											<td>{$client->getNom()}</td>
+											<td>{$client->getRaisonSociale()}</td>
                                             <td>{$client->getAdresse()}</td>
-                                            <td>{$client->getTelephone()}</td>
+                                            <td>{$client->getTel()}</td>
                                             <td>{$client->getEmail()}</td>                                        
                                         </tr>
                                     {/foreach}

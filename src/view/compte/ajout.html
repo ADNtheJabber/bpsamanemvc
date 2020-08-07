@@ -77,7 +77,7 @@
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<select class="custom-select form-control input-sm" name="typeCompte" id="typeCompte" required >
+											<select class="custom-select form-control input-sm" name="typeCompte" id="typeCompte">
 												<option value="0" selected>Choisir le type de Compte</option>
 												<option value="1">Compte Courant</option>
 												<option value="2">Compte Epargne et Xewel</option>
@@ -90,12 +90,12 @@
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" class="form-control input-sm" name="numeroCompte" id="numeroCompte" placeholder="Numero de Compte" required/>
+											<input type="text" class="form-control input-sm" name="numeroCompte" id="numeroCompte" placeholder="Numero de Compte"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" class="form-control input-sm" name="fraisOuverture" id="fraisOuverture" placeholder="Frais d'Ouverture" required/>
+											<input type="number" class="form-control input-sm" name="fraisOuverture" id="fraisOuverture" placeholder="Frais d'Ouverture"/>
 										</div>
 									</div>
 								</div>
@@ -103,19 +103,19 @@
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" name="depotInitial" id="depotInitial" class="form-control input-sm" placeholder="Depot initial" required/>
+											<input type="number" name="depotInitial" id="depotInitial" class="form-control input-sm" placeholder="Depot initial"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" name="remuneration" id="remuneration" class="form-control input-sm" placeholder="Remuneration Annuelle" required/>
+											<input type="number" name="remuneration" id="remuneration" class="form-control input-sm" placeholder="Remuneration Annuelle"/>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" name="agios" id="agios" class="form-control input-sm" placeholder="Agios" required/>
+											<input type="number" name="agios" id="agios" class="form-control input-sm" placeholder="Agios"/>
 										</div>
 									</div>
 								</div>
@@ -123,13 +123,13 @@
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
 											<label for="cni">Date d'Ouverture</label>
-											<input type="date" name="dateOuverture" id="dateOuverture" class="form-control input-sm" placeholder="date d'Ouverture" required/>
+											<input type="date" name="dateOuverture" id="dateOuverture" class="form-control input-sm" placeholder="date d'Ouverture"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
 											<label for="cni">Date de Deblocage</label>
-											<input type="date" name="dateDeblocage" id="dateDeblocage" class="form-control input-sm" placeholder="date de Deblocage" required/>
+											<input type="date" name="dateDeblocage" id="dateDeblocage" class="form-control input-sm" placeholder="date de Deblocage"/>
 										</div>
 									</div>
 								</div>
@@ -144,14 +144,78 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">										
 											
-										<input type="number" class="form-control input-sm" name="searchEntreprise" id="searchEntreprise"  onkeyup="searchValidEntreprise()" placeholder="saisir le numero de ninea" required/>
+										<input type="text" class="form-control input-sm" name="searchEntreprise" id="searchEntreprise"  onkeyup="searchValidEntreprise()" placeholder="saisir le numero de ninea"/>
 										
-                                    	<input type="number" class="form-control input-sm" name="searchPhysique" id="searchPhysique"  onkeyup="searchValidPhysique()" placeholder="saisir le numero de cin" required/>
+                                    	<input type="text" class="form-control input-sm" name="searchPhysique" id="searchPhysique"  onkeyup="searchValidPhysique()" placeholder="saisir le numero de cin"/>
 									</div>
 									<div id="result">
             
                                     </div>
                                 </div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									{if isset($Mresults)}
+										{if $Mresults != null}
+											<table class="table table-bordered table-stripped">
+												<tr>
+													<th>Identifiant</th>
+													<th>Nom</th>
+													<th>Adresse</th>
+													<th>Telephone</th>
+													<th>Email</th>
+													<th>Ninea</th>
+													<th>Registre de Commerce</th>
+												</tr>
+												{foreach from=$Mresults item=Mresult}
+													<tr>
+														<td>{$result->getId()}</td>
+														<td>{$result->getNom()}</td>
+														<td>{$result->getAdresse()}</td>
+														<td>{$result->getTelephone()}</td>
+														<td>{$result->getEmail()}</td>
+														<td>{$result->getNinea()}</td>
+														<td>{$result->getRegiscom()}</td>                                       
+													</tr>
+												{/foreach}
+											</table>
+										{else}
+											{$Mmessage}	
+										{/if}
+									{/if}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									{if isset($Presults)}
+									{if $Presults != null}
+										<table class="table table-bordered table-stripped">
+											<tr>
+												<th>Identifiant</th>
+												<th>Nom</th>
+												<th>Prenom</th>
+												<th>Adresse</th>
+												<th>Telephone</th>
+												<th>Email</th>
+												<th>Numero de CNI</th>
+											</tr>
+											{foreach from=$Presults item=Presult}
+												<tr>
+													<td>{$Presult->getId()}</td>
+													<td>{$Presult->getNom()}</td>
+													<td>{$Presult->getPrenom()}</td>
+													<td>{$Presult->getAdresse()}</td>
+													<td>{$Presult->getTelephone()}</td>
+													<td>{$Presult->getEmail()}</td>
+													<td>{$Presult->getIdentifiant()}</td>                                        
+												</tr>
+											{/foreach}
+										</table>
+									{else}
+										{$Pmessage}
+									{/if}
+								{/if}
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">

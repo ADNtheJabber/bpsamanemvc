@@ -24,8 +24,8 @@ class clientMoralController extends Controller {
     public function liste(){
         $clientMdb = new clientMoralRepository();
         
-        $data['tests'] = $clientMdb->liste();
-        return $this->view->load("test/liste", $data);
+        $data['clientsM'] = $clientMdb->liste();
+        return $this->view->load("clientMoral/liste", $data);
     }
      /** 
      * url pattern for this method
@@ -34,35 +34,32 @@ class clientMoralController extends Controller {
 
     public function add() {
 
-    if (isset($_POST) && !empty($_POST)) {
-
-        extract($_POST);
-        $data['ok'] = 0;
-
-        $clientM = new ClientMoral();
-        $clientMoralRepository = new ClientMoralRepository();
+        if (isset($_POST['valider'])) {
             
-        $clientM->setNom($_POST['nomEntreprise']);
-        $clientM->setAdresse($_POST['adresseEntreprise']);
-        $clientM->setTel($_POST['telEntreprise']);
-        $clientM->setEmail($_POST['emailEntreprise']);
-        $clientM->setNinea($_POST['ninea']);
-        $clientM->setRegiscom($_POST['regiscommerce']);
-            
+            extract($_POST);
+            $data['ok'] = 0;
+    
+            if (!empty($_POST)) {
 
-        $log = $clientMoralRepository->add($clientM);
+                $clientM = new ClientMoral();
+                $clientMoralRepository = new ClientMoralRepository();
+                    
+                $clientM->setNom($_POST['nom']);
+                $clientM->setAdresse($_POST['adresse']);
+                $clientM->setTel($_POST['tel']);
+                $clientM->setEmail($_POST['email']);
+                $clientM->setNinea($_POST['ninea']);
+                $clientM->setRegiscom($_POST['registreCommerce']);
+                    
 
-            // var_dump($log);
-            
-        if ($log) {
-            $data['ok'] = $log;
-
+                $data['ok'] = $clientMoralRepository->add($clientM);
+            }
             return $this->view->load("clientMoral/ajout", $data);
-        } else {
-            return $this->view->load("clientMoral/ajout");
         }
-    }
-   }
+        else {
+                return $this->view->load("clientMoral/ajout");
+            }
+        }
     /** 
      * url pattern for this method
      * localhost/bpsamanemvc/clientMoral

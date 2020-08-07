@@ -23,7 +23,7 @@ class clientPhysiqueController extends Controller {
     public function liste(){
         $clientPdb = new ClientPhysiqueRepository;
         
-        $data['clients'] = $clientPdb->liste();
+        $data['clientsP'] = $clientPdb->liste();
         return $this->view->load("clientPhysique/liste", $data);
     }
      /** 
@@ -33,38 +33,35 @@ class clientPhysiqueController extends Controller {
 
     public function add() {
 
-    if (isset($_POST) && !empty($_POST)) {
-
-        extract($_POST);
-        $data['ok'] = 0;
-
-        $clientP = new ClientPhysique();
-        $clientPhysiqueRepository = new ClientPhysiqueRepository();
+        if (isset($_POST['valider'])) {
             
-        $clientP->setNom($_POST['nomPhysique']);
-        $clientP->setPrenom($_POST['prenomPhysique']);
-        $clientP->setAdresse($_POST['adressePhysique']);
-        $clientP->setTel($_POST['telPhysique']);
-        $clientP->setEmail($_POST['emailPhysique']);
-        $clientP->setIdentifiant($_POST['cni']);
-        $clientP->setSalaire($_POST['salaire'] !='' ? $_POST['salaire'] : 0);
-        $clientP->setProfession($_POST['profession']);
-        $clientP->setInfosEmp($_POST['infos_emp']);
-            
+            extract($_POST);
+            $data['ok'] = 0;
+    
+            if (!empty($_POST)) {
 
-        $log = $clientPhysiqueRepository->add($clientP);
+                $clientP = new ClientPhysique();
+                $clientPhysiqueRepository = new ClientPhysiqueRepository();
+                    
+                $clientP->setNom($_POST['nom']);
+                $clientP->setPrenom($_POST['prenom']);
+                $clientP->setAdresse($_POST['adresse']);
+                $clientP->setTel($_POST['tel']);
+                $clientP->setEmail($_POST['email']);
+                $clientP->setIdentifiant($_POST['identifiant']);
+                $clientP->setSalaire($_POST['salaire'] !='' ? $_POST['salaire'] : 0);
+                $clientP->setProfession($_POST['profession']);
+                $clientP->setInfosEmp($_POST['info_employeur']);
+                    
 
-            // var_dump($log);
-            
-        if ($log) {
-            $data['ok'] = $log;
-
+                $data['ok'] = $clientPhysiqueRepository->add($clientP);
+            }
             return $this->view->load("clientPhysique/ajout", $data);
-        } else {
-            return $this->view->load("clientPhysique/ajout");
         }
-    }
-   }
+        else {
+                return $this->view->load("clientPhysique/ajout");
+            }
+        }
    /** 
      * url pattern for this method
      * localhost/bpsamanemvc/clientPhysique

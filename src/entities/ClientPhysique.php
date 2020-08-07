@@ -43,7 +43,7 @@ class ClientPhysique {
     /** 
      * @Column(type="integer") 
      */
-    private $cni;
+    private $identifiant;
 
     /** 
      * @Column(type="integer") 

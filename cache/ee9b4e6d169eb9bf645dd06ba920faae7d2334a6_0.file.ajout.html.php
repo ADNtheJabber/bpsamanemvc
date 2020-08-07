@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-07 00:07:21
+/* Smarty version 3.1.30, created on 2020-08-07 12:53:34
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/clientMoral/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c7f1968dab9_61601756',
+  'unifunc' => 'content_5f2d32ae9e0227_09780981',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ee9b4e6d169eb9bf645dd06ba920faae7d2334a6' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/clientMoral/ajout.html',
-      1 => 1596751633,
+      1 => 1596796863,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c7f1968dab9_61601756 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2d32ae9e0227_09780981 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -105,8 +105,8 @@ assistance/index">Assistance</a></li>
 							<h3 class="panel-title" style="text-transform: uppercase;"><i class="fa fa-user-circle"></i>  Formulaire de creation de Client Entreprise</h3>
 							</div>
 							<div class="panel-body">
-								<?php if (isset($_smarty_tpl->tpl_vars['log']->value)) {?>
-									<?php if ($_smarty_tpl->tpl_vars['log']->value != 0) {?>
+								<?php if (isset($_smarty_tpl->tpl_vars['ok']->value)) {?>
+									<?php if ($_smarty_tpl->tpl_vars['ok']->value != 0) {?>
 										<div class="alert alert-success">Données ajoutées!</div>
 									<?php } else { ?>
 										<div class="alert alert-danger">Erreur!</div>
@@ -118,25 +118,12 @@ ClientMoral/add" id="formClientMoral">
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" class="form-control input-sm" name="nom" id="nom" placeholder="Nom de l'Entreprise" required/>
+											<input type="text" class="form-control input-sm" name="nom" id="nom" placeholder="Nom de l'Entreprise"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" class="form-control input-sm" name="raisonSociale" id="raisonSociale" placeholder="Raison sociale" required/>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="form-group">
-											<input type="text" class="form-control input-sm" name="email" id="email" placeholder="Email" required/>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="form-group">
-											<input type="number" class="form-control input-sm" name="tel" id="tel" placeholder="Telephone" required/>
+											<input type="text" class="form-control input-sm" name="raisonSociale" id="raisonSociale" placeholder="Raison sociale"/>
 										</div>
 									</div>
 								</div>
@@ -144,19 +131,32 @@ ClientMoral/add" id="formClientMoral">
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" name="adresse" id="adresse" class="form-control input-sm" placeholder="Adresse" required/>
+											<input type="text" class="form-control input-sm" name="email" id="email" placeholder="Email"/>
 										</div>
 									</div>
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="number" name="ninea" id="ninea" class="form-control input-sm" placeholder="Ninéa" required/>
+											<input type="number" class="form-control input-sm" name="tel" id="tel" placeholder="Telephone"/>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="adresse" id="adresse" class="form-control input-sm" placeholder="Adresse"/>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="number" name="ninea" id="ninea" class="form-control input-sm" placeholder="Ninéa"/>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-6 col-sm-6 col-md-6">
 										<div class="form-group">
-											<input type="text" name="registreCommerce" id="registreCommerce" class="form-control input-sm" placeholder="Registre de Commerce" required/>
+											<input type="text" name="registreCommerce" id="registreCommerce" class="form-control input-sm" placeholder="Registre de Commerce"/>
 										</div>
 									</div>
 								</div>

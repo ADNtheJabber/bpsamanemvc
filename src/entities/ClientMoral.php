@@ -23,6 +23,11 @@ use Doctrine\Common\Collections\ArrayCollection;
     /** 
      * @Column(type="string") 
      */
+    private $raisonSociale;
+
+    /** 
+     * @Column(type="string") 
+     */
     private $adresse;
 
     /** 
@@ -71,6 +76,14 @@ use Doctrine\Common\Collections\ArrayCollection;
         $this->nom = $nom;
     }
 
+    public function getRaisonSociale(){
+        return $this->raisonSociale;
+    }
+    
+    public function setRaisonSociale($raisonSociale){
+        $this->raisonSociale = $raisonSociale;
+    }
+    
     public function getAdresse(){
         return $this->adresse;
     }

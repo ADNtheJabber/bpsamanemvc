@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-07 00:02:19
+/* Smarty version 3.1.30, created on 2020-08-07 12:48:09
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/clientPhysique/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c7deb8b6405_65979040',
+  'unifunc' => 'content_5f2d3169b35646_84434996',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a6d819fa1a096e72db9636428a714b657acf09c7' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/clientPhysique/ajout.html',
-      1 => 1596751330,
+      1 => 1596796888,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c7deb8b6405_65979040 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2d3169b35646_84434996 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -105,8 +105,8 @@ assistance/index">Assistance</a></li>
 							<h3 class="panel-title" style="text-transform: uppercase;"><i class="fa fa-user-circle"></i>  Formulaire de creation de Client Physique</i></h3>
 							</div>
 							<div class="panel-body">
-								<?php if (isset($_smarty_tpl->tpl_vars['log']->value)) {?>
-									<?php if ($_smarty_tpl->tpl_vars['log']->value != 0) {?>
+								<?php if (isset($_smarty_tpl->tpl_vars['ok']->value)) {?>
+									<?php if ($_smarty_tpl->tpl_vars['ok']->value != 0) {?>
 										<div class="alert alert-success">Données ajoutées!</div>
 									<?php } else { ?>
 										<div class="alert alert-danger">Erreur!</div>
