@@ -106,4 +106,34 @@ function check_entrees_compte(e){
           });
         }, false);
       })();
-      
+      $(document).ready(function () {
+          $('#searchEntreprise').keyup(function(){
+              var txt = $(this).val();
+              if (txt != '') {
+                $('#result').html('');
+                $.ajax({
+                    url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
+                    method:"post",
+                    data:{search:txt},
+                    dataType:"text",
+                    success:function(data) {
+                      $('#result').html('data');
+
+                    }
+                });
+              }
+              else {
+                  $('#result').html('');
+                  $.ajax({
+                      url:"/opt/lampp/htdocs/bpsamanemvc/src/controller/CompteController.class.php",
+                      method:"post",
+                      data:{search:txt},
+                      dataType:"text",
+                      success:function(data) {
+                        $('#result').html('data');
+
+                      }
+                  });
+              }
+          })
+      })

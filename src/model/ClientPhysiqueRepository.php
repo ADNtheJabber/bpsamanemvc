@@ -7,16 +7,16 @@ use libs\system\Model;
 class ClientPhysiqueRepository extends Model {
 
     public function add($clientP){
-        require_once "../../bootstrap.php";
-
-        $entityManager->persist($clientP);
-        $entityManager->flush();
+        if($this->db != null)
+		{
+            $this->db->persist($clientP);
+            $this->db->flush();
+        }
 
     }
 
     public function liste(){
-        require_once "../../bootstrap.php";
-        
+         
         if($this->db != null)
 		{
 			return $this->db->createQuery("SELECT c FROM ClientPhysique c")->getResult();
@@ -25,11 +25,10 @@ class ClientPhysiqueRepository extends Model {
 
 
     public function getClient($id){
-        
-        require_once "../../bootstrap.php";
-        if($entityManager != null)
+  
+        if($this->db != null)
 		{
-            return $entityManager->createQuery("SELECT c FROM ClientPhysique c WHERE c.id = " . $id)->getSingleResult();
+            return $this->db->createQuery("SELECT c FROM ClientPhysique c WHERE c.id = ".$id)->getSingleResult();
 		}
 	}
 }

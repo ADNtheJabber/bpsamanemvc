@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-06 16:12:25
+/* Smarty version 3.1.30, created on 2020-08-07 00:07:21
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/clientMoral/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c0fc92547d1_11322861',
+  'unifunc' => 'content_5f2c7f1968dab9_61601756',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ee9b4e6d169eb9bf645dd06ba920faae7d2334a6' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/clientMoral/ajout.html',
-      1 => 1596723129,
+      1 => 1596751633,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c0fc92547d1_11322861 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c7f1968dab9_61601756 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -102,7 +102,7 @@ assistance/index">Assistance</a></li>
 			<div class="col-xs-12 col-sm-8 col-md-10">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-							<h3 class="panel-title" style="text-transform: uppercase;"><i class="fa fa-user-circle"></i>  Formulaire de creation de Client Physique</i></h3>
+							<h3 class="panel-title" style="text-transform: uppercase;"><i class="fa fa-user-circle"></i>  Formulaire de creation de Client Entreprise</h3>
 							</div>
 							<div class="panel-body">
 								<?php if (isset($_smarty_tpl->tpl_vars['log']->value)) {?>

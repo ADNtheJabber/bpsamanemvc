@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-06 16:12:21
+/* Smarty version 3.1.30, created on 2020-08-07 00:02:19
   from "/opt/lampp/htdocs/bpsamanemvc/src/view/clientPhysique/ajout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c0fc546c814_05459399',
+  'unifunc' => 'content_5f2c7deb8b6405_65979040',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a6d819fa1a096e72db9636428a714b657acf09c7' => 
     array (
       0 => '/opt/lampp/htdocs/bpsamanemvc/src/view/clientPhysique/ajout.html',
-      1 => 1596722566,
+      1 => 1596751330,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c0fc546c814_05459399 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c7deb8b6405_65979040 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="en">
@@ -116,7 +116,7 @@ assistance/index">Assistance</a></li>
 ClientPhysique/add" id="formClientPhysique">
 
 								<div class="row">
-									<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="col-xs-12 col-sm-12 col-md-12">
 										<div class="form-group">
 											<label for="SituationProfessionnelle">Situation professionnelle:</label>
 												<button class="btn" id="salariebtn"><i class="fa fa-briefcase" aria-hidden="true"></i> Salarié</button>

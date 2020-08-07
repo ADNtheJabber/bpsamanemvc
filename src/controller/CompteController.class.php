@@ -23,26 +23,26 @@ class CompteController extends Controller {
 
     public function add() {
     
-        
-
-    if (isset($_POST['valider'])) {
+        if (isset($_POST['valider'])) {
         
         extract($_POST);
         $data['ok'] = 0;
 
         if (!empty($_POST)) {
+
             $compte = new Compte();
             $compteRepository = new CompteRepository();
-        if ($_POST['typeCompte']==1) {
-            $compte->setTypeCompte('Courant');
-        } 
-        else if ($_POST['typeCompte']==2) {
-            $compte->setTypeCompte('Epargne');
-        } 
-        else if ($_POST['typeCompte']==3) {
-            $compte->setTypeCompte('Bloque');
-        }
-        
+
+            if ($_POST['typeCompte']==1) {
+                $compte->setTypeCompte('Courant');
+            } 
+            else if ($_POST['typeCompte']==2) {
+                $compte->setTypeCompte('Epargne');
+            } 
+            else if ($_POST['typeCompte']==3) {
+                $compte->setTypeCompte('Bloque');
+            }
+            
         //$compte->setTypeCompte($_POST['typeCompte']);
         $compte->setNumCompte($_POST['numeroCompte']);
         $compte->setFraisOuv($_POST['fraisOuverture']);
@@ -96,6 +96,24 @@ class CompteController extends Controller {
         
         $data['comptes'] = $comptedb->getCompte($id);
         return $this->view->load("compte/details", $data);
+    }
+
+    /** 
+     * url pattern for this method
+     * localhost/bpsamanemvc/compte
+     */
+    public function searchEntreprise($id) {
+        $comptedb = new CompteRepository;
+        
+        $data['results'] = $comptedb->autosearchEntreprise($_POST["searchEntreprise"]);
+        if (!empty($data)) {
+            
+        }
+        else{
+            $message = "client moral introuvable, essayer de chercher parmi les clients physiques !";
+            return $this->view->load("compte/ajout", $message);
+        }
+        //return $this->view->load("compte/details", $data);
     }
 
 }   

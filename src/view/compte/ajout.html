@@ -144,13 +144,13 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">										
 											
-										<input list="trouve" type="number" class="form-control input-sm" name="searchEntreprise" id="searchEntreprise"  onkeyup="searchValidEntreprise()" placeholder="saisir le numero de ninea" required/>
+										<input type="number" class="form-control input-sm" name="searchEntreprise" id="searchEntreprise"  onkeyup="searchValidEntreprise()" placeholder="saisir le numero de ninea" required/>
 										
-                                    	<input list="trouve" type="number" class="form-control input-sm" name="searchPhysique" id="searchPhysique"  onkeyup="searchValidPhysique()" placeholder="saisir le numero de cin" required/>
+                                    	<input type="number" class="form-control input-sm" name="searchPhysique" id="searchPhysique"  onkeyup="searchValidPhysique()" placeholder="saisir le numero de cin" required/>
 									</div>
-									<datalist id="trouve">
+									<div id="result">
             
-                                    </datalist>
+                                    </div>
                                 </div>
 							</div>
 							<div class="row">
@@ -174,7 +174,7 @@
     </div>
 
     <script src="{$url_base}public/js/scriptCompte.js"></script>
-    <script src="{$url_base}public/js/ajax.js"></script>
+    <script src="{$url_base}public/js/jquery.js"></script>
 		
 	</body>
 </html>
